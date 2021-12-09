@@ -14,26 +14,38 @@ class Polygon {
 }
 
 class Triangle extends Polygon {
+    triangleTest() {
+        if (this.array[0] +this.array[1] > this.array[2] && this.array[1] + this.array[2] > this.array[0]
+            && this.array[0] + this.array[2] > this.array[1]) { 
+                return true
+       }
+    }
     get isValid() {
-        if (countSides > perimeter) {
-            return false 
-        } else {
-            return true
+         if (this.countSides === 3 && this.triangleTest()) {
+             return true
+         } else {
+             return false
         }
     }
 }
-
-
+        
+        
 class Square extends Polygon {
+     equivalentSides() {
+            if (this.array[0] === this.array[1] && this.array[0] === this.array[2]
+                && this.array[0] === this.array[3]) { 
+                    return true
+           }
+        }    
     get isValid() {
-        if (countSides === 4) {
+        if (this.countSides === 4 && this.equivalentSides()) {
             return true
         } else {
             return false
         }
     }
     get area() {
-        const area = countSides/2 * countsides/2
+        return this.array[0] * this.array[1]
     }
 }
 
